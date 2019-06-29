@@ -5,8 +5,13 @@
 </template>
 
 <style lang="scss">
+@import '@/assets/scss/variables.scss';
+
 .ProfileWrapper {
   margin: auto;
-  max-width: 700px;
+
+  @media (min-width: $lg) {
+    max-width: $page_max_width;
+  }
 }
 </style>
