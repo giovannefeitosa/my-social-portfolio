@@ -15,4 +15,10 @@ html, body {
   font-family: 'Roboto', 'Avenir', Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
+
+body {
+  // Same background color used for old-times Orkut
+  // We miss you, bro =')
+  background: #d4dded;
+}
 </style>
