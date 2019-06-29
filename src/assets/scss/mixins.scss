@@ -3,3 +3,14 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+@mixin contentBox() {
+  @media (min-width: $lg) {
+    border-radius: 5px;
+    box-shadow: 0 0 4px 1px #777;
+  }
+  
+  @media (max-width: $lg - 1) {
+    box-shadow: 0 1px 5px 1px #999;
+  }
+}

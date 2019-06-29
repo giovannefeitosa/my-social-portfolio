@@ -35,20 +35,12 @@
   </div>
 
   <nav class="profile-nav">
-    <router-link to="/" class="profile-nav-link active">
-      Timeline
-    </router-link>
-
-    <router-link to="/" class="profile-nav-link">
-      Projects
-    </router-link>
-
-    <router-link to="/" class="profile-nav-link">
-      Skills
-    </router-link>
-
-    <router-link to="/" class="profile-nav-link">
-      About
+    <router-link
+      v-for="t in tabs"
+      :key="t.id"
+      :to="{ name: t.route }"
+      :class="{ 'profile-nav-link': true, active: isActive(t.id) }">
+      {{ t.label }}
     </router-link>
   </nav>
 
@@ -60,14 +52,18 @@
 @import '@/assets/scss/mixins.scss';
 
 .ProfileHeader {
+  @include contentBox();
+  position: relative;
   background: #fff;
+  z-index: 2;
   
   @media (min-width: $lg) {
     margin-top: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 0 4px 1px #777;
-    border-radius: 5px;
     overflow: hidden;
+  }
+
+  @media (max-width: $lg - 1) {
+    border-bottom: 1px solid #ccc;
   }
 
   @media (min-width: $sm + 1) {
@@ -97,6 +93,7 @@
       }
     }
     .profile-nav-link {
+      padding: 25px 5px;
       font-size: 18px;
     }
   }
@@ -127,6 +124,7 @@
       }
     }
     .profile-nav-link {
+      padding: 25px 5px;
       font-size: 16px;
     }
   }
@@ -158,6 +156,7 @@
       }
     }
     .profile-nav-link {
+      padding: 25px 5px 15px 5px;
       font-size: 14px;
     }
   }
@@ -207,10 +206,10 @@
   .profile-nav {
     display: flex;
     width: 100%;
+    background: linear-gradient(#fff,#e7e7e7);
 
     .profile-nav-link {
       flex: 1;
-      padding: 25px 5px;
       text-align: center;
       text-decoration: none;
       color: #777;
@@ -238,8 +237,21 @@ import cover from '@/assets/img/profile/cover.jpg'
 import photo from '@/assets/img/profile/photo.jpg'
 
 export default {
-  
+
+  props: {
+    tab: String,
+  },
+
   computed: {
+
+    tabs() {
+      return [
+        { id: 'Timeline', label: 'Timeline', route: 'Timeline' },
+        { id: 'Projects', label: 'Projects', route: 'Projects' },
+        { id: 'Skills',   label: 'Skills',   route: 'Skills' },
+        { id: 'About',    label: 'About',    route: 'About' },
+      ]
+    },
 
     coverStyle() {
       return {
@@ -251,6 +263,14 @@ export default {
       return {
         'background-image': "url('" + photo + "')"
       }
+    }
+
+  },
+
+  methods: {
+
+    isActive(tab) {
+      return this.tab === tab
     }
 
   }
