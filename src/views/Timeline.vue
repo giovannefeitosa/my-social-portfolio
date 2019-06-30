@@ -1,19 +1,19 @@
 <template>
   <ProfileWrapper>
+
     <ProfileHeader tab="Timeline" />
 
-    <BoxWrapper>
-      Timeline under development
-    </BoxWrapper>
+    <BlogPosts />
+
   </ProfileWrapper>
 </template>
 
 <script>
 import ProfileWrapper from '@/components/Profile/ProfileWrapper'
 import ProfileHeader from '@/components/Profile/ProfileHeader'
-import BoxWrapper from '@/components/Box/BoxWrapper'
+import BlogPosts from '@/components/Timeline/BlogPosts'
 
 export default {
-  components: { ProfileWrapper, ProfileHeader, BoxWrapper }
+  components: { ProfileWrapper, ProfileHeader, BlogPosts }
 }
 </script>
