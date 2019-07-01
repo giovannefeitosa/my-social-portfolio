@@ -14,7 +14,9 @@ Vue.config.productionTip = false
 Vue.use(NodeBlogApi, {
   store,
   autoload: true,
-  endpoint: 'http://localhost:3000'
+  endpoint: process.env.NODE_ENV === 'production'
+    ? 'http://alagym.com.br:9850'
+    : 'http://localhost:3000'
 })
 
 Vue.use(helpers)
