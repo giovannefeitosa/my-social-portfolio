@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["projects"],{acca:function(e,r,o){"use strict";o.r(r);var t=function(){var e=this,r=e.$createElement,o=e._self._c||r;return o("ProfileWrapper",[o("ProfileHeader",{attrs:{tab:"Projects","no-pad-bottom":""}}),o("BoxWrapper",[o("BoxContent",[e._v("\n      Projects under development\n    ")])],1)],1)},n=[],a=o("92ad"),p=o("01e1"),c={components:{ProfileWrapper:a["a"],ProfileHeader:p["a"]}},l=c,s=o("2877"),i=Object(s["a"])(l,t,n,!1,null,null,null);r["default"]=i.exports}}]);
+//# sourceMappingURL=projects.fa87fa25.js.map
