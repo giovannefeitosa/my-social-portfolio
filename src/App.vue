@@ -27,4 +27,9 @@ body {
   // Now I'm using facebook's background color
   background: #e9ebee;
 }
+
+.clearfix {
+  display: block;
+  clear: both;
+}
 </style>

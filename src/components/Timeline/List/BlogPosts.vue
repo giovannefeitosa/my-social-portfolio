@@ -15,16 +15,17 @@
   </BoxWrapper>
   
   <template v-if="!error">
-    <BoxWrapper
+    <BlogPostItem
       v-for="post in posts"
-      :key="post._id">
-      {{ post }}
-    </BoxWrapper>
+      :key="post._id"
+      :post="post" />
   </template>
 </div>
 </template>
 
 <script>
+import BlogPostItem from './BlogPostItem'
+
 export default {
   data() {
     return {
@@ -39,6 +40,6 @@ export default {
       return this.$store.state['node-blog-api'].posts
     }
   },
-  components: { }
+  components: { BlogPostItem }
 }
 </script>
