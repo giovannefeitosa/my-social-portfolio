@@ -21,7 +21,14 @@
       </router-link>
 
       <div class="post-like-stats">
-        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="standard" data-action="recommend" data-size="small" data-show-faces="true" data-share="false"></div>
+        <div class="fb-like"
+          :data-href="postUrl(post)"
+          data-width=""
+          data-layout="standard"
+          data-action="recommend"
+          data-size="small"
+          data-show-faces="true"
+          data-share="false"></div>
       </div>
     </div>
   </BoxWrapper>
@@ -117,6 +124,13 @@ export default {
   computed: {
     post_route() {
       return {name: 'Post', params: {id: this.post._id}}
+    }
+  },
+  methods: {
+    postUrl(post) {
+      return this.$url(this.$router.matcher.match(
+        {name: 'Post', params: {id: post._id} }
+      ).fullPath)
     }
   }
 }

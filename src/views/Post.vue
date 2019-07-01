@@ -1,6 +1,6 @@
 <template>
   <Timeline>
-    <div class="Post">
+    <div class="Post" v-if="post && post._id">
       <div class="post-overlay" @click="close"></div>
       <div class="post-wrapper">
         <SinglePost :post="post" />

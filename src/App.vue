@@ -33,6 +33,17 @@ body {
   }
 }
 
+a {
+  &, &:visited {
+    color: #385898;
+  }
+  text-decoration: none;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+
 .clearfix {
   display: block;
   clear: both;

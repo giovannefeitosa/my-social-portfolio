@@ -14,12 +14,12 @@
     </BoxContent>
   </BoxWrapper>
   
-  <template v-if="!error">
+  <div class="blog-posts" ref="posts" v-if="!error">
     <BlogPostItem
       v-for="post in posts"
       :key="post._id"
       :post="post" />
-  </template>
+  </div>
 </div>
 </template>
 
@@ -38,6 +38,19 @@ export default {
     },
     posts() {
       return this.$store.state['node-blog-api'].posts
+    }
+  },
+  mounted() {
+    this.refreshFB()
+  },
+  watch: {
+    posts() {
+      this.refreshFB()
+    }
+  },
+  methods: {
+    refreshFB() {
+      if(window.FB) window.FB.XFBML.parse(this.$refs['posts'])
     }
   },
   components: { BlogPostItem }

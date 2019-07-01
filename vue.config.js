@@ -6,6 +6,6 @@ module.exports = {
 
   // Relative public path on build
   // because ghpages publish code to a subdomain
-  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/my-social-portfolio/' : '/',
 
 }
