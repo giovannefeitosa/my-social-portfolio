@@ -7,8 +7,9 @@ export default {
 
     Vue.prototype.$url = function(uri) {
       return 'https://' + window.location.host
-        + _.trimEnd(process.env.BASE_PATH, '/')
-        + ( process.env.NODE_ENV === 'production' ? '' : '/#' )
+        // + _.trimEnd(process.env.BASE_PATH, '/')
+        // + ( process.env.NODE_ENV === 'production' ? '' : '/#' )
+        + '#'
         + uri
     }
   }

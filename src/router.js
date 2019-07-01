@@ -6,7 +6,9 @@ import Post from '@/views/Post'
 Vue.use(Router)
 
 export default new Router({
-  mode: process.env.NODE_ENV === 'production' ? 'history' : 'hash',
+  // History mode didn't work on github pages
+  // mode: process.env.NODE_ENV === 'production' ? 'history' : 'hash',
+  
   base: process.env.BASE_URL,
   routes: [
     {
