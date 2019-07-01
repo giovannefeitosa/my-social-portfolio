@@ -6,6 +6,8 @@ import NodeBlogApi from './plugins/NodeBlogApi/NodeBlogApi'
 import helpers from './plugins/helpers'
 import BoxWrapper from '@/components/Box/BoxWrapper'
 import BoxContent from '@/components/Box/BoxContent'
+import FBLike from '@/components/common/FBLike'
+import FBComments from '@/components/common/FBComments'
 
 Vue.config.productionTip = false
 
@@ -19,6 +21,8 @@ Vue.use(helpers)
 
 Vue.component('BoxWrapper', BoxWrapper)
 Vue.component('BoxContent', BoxContent)
+Vue.component('FBLike', FBLike)
+Vue.component('FBComments', FBComments)
 
 new Vue({
   router,

@@ -4,7 +4,7 @@
       <span class="user-photo"></span>
       <span class="post-data">
         <span class="user-name">Giovanne Feitosa</span>
-        <span class="post-timestamp">{{ post.created_at }}</span>
+        <span class="post-timestamp">{{ $formatDate(post.created_at) }}</span>
       </span>
       <span class="clearfix"></span>
     </router-link>
@@ -21,14 +21,7 @@
       </router-link>
 
       <div class="post-like-stats">
-        <div class="fb-like"
-          :data-href="postUrl(post)"
-          data-width=""
-          data-layout="standard"
-          data-action="recommend"
-          data-size="small"
-          data-show-faces="true"
-          data-share="false"></div>
+        <FBLike :url="postUrl(post)" />
       </div>
     </div>
   </BoxWrapper>
@@ -38,8 +31,9 @@
 @import '@/assets/scss/mixins.scss';
 
 .BlogPostItem {
-  overflow: hidden;
   margin-bottom: 15px;
+  overflow: hidden;
+  width: 100%;
   
   a {
     text-decoration: none;

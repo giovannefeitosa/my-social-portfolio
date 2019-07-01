@@ -1,5 +1,5 @@
 <template>
-  <article class="SinglePost">
+  <article class="SinglePost" ref="post">
     <div class="post-cover" :style="coverStyle"></div>
     <div class="post-content-wrapper">
       
@@ -12,7 +12,7 @@
           </div>
 
           <div class="post-timestamp">
-            {{ post.created_at }}
+            {{ $formatDate(post.created_at) }}
           </div>
         </div>
       </header>
@@ -20,20 +20,11 @@
       <div class="post-content" v-html="post.body"></div>
 
       <div class="fb-like-wrapper">
-        <div class="fb-like"
-          :data-href="currentUrl"
-          data-width=""
-          data-layout="standard"
-          data-action="recommend"
-          data-size="small"
-          data-show-faces="true"
-          data-share="false"></div>
+        <FBLike />
       </div>
 
-      <div class="fb-comments-wrapper" ref="comments">
-        <div class="fb-comments"
-          :data-href="currentUrl"
-          data-width="1200px" data-numposts="5"></div>
+      <div class="fb-comments-wrapper">
+        <FBComments />
       </div>
     </div>
   </article>
@@ -43,6 +34,7 @@
 @import '@/assets/scss/mixins.scss';
 
 .SinglePost {
+  position: relative;
   .post-cover {
     @include bgCover();
     background-position: center;
@@ -68,7 +60,7 @@
     .post-metadata {
       line-height: 30px;
       font-size: 15px;
-      text-transform: uppercase;
+      // text-transform: uppercase;
 
       .post-author, .post-timestamp {
         display: inline-block;
@@ -105,9 +97,21 @@
     }
   }
 
+  .fb-like-wrapper, .fb-comments-wrapper {
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .fb-like-wrapper {
+    margin-top: 70px;
+    padding: 15px;
+    background: #ddd;
+  }
+
   .fb-comments-wrapper {
     margin: auto;
-    padding-top: 70px;
+    padding-top: 30px;
   }
 }
 </style>
@@ -125,16 +129,11 @@ export default {
         'background-image': `url('${img}')`
       }
     },
-    currentUrl() {
-      return this.$url(
-        this.$route.fullPath
-      )
-    }
   },
 
   mounted() {
     if(window.FB) {
-      window.FB.XFBML.parse(this.$refs['comments'])
+      window.FB.XFBML.parse(this.$refs['post'])
     }
   },
 
