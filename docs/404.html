@@ -5,10 +5,20 @@
     <title>Giovanne Afonso Social Portfolio</title>
     <script type="text/javascript">
       let l = window.location;
+      
+      // Base paths
+      let base_url = 'https://shakegioh.github.io/my-social-portfolio/'
       let uri = l.href.split('/my-social-portfolio/', 2)[1]
-      l.replace(
-        'https://shakegioh.github.io/my-social-portfolio/' + uri
-      );
+
+      // Firstly redirect user to a valid vue-router url
+      l.replace(base_url + '#/' + uri);
+
+      // Secondly replace history to hide the hash from browser
+      window.history.replaceState(
+        null,
+        "Giovanne Afonso Social Portfolio",
+        base_url + uri
+      )
     </script>
   </head>
   <body>
