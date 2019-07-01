@@ -2,7 +2,7 @@ import _ from 'lodash'
 
 export default {
   router: null,
-  install(Vue, options) {
+  install(Vue) {
     // this.router = options
 
     Vue.prototype.$url = function(uri) {
