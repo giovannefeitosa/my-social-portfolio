@@ -19,6 +19,7 @@ html, body {
 }
 
 body {
+  overflow-x: hidden;
   // Same background color used for old-times Orkut
   // We miss you, bro =')
   // background: #d4dded;
@@ -26,6 +27,10 @@ body {
   // Changed my mind...
   // Now I'm using facebook's background color
   background: #e9ebee;
+
+  &.scroll_lock {
+    overflow-y: hidden;
+  }
 }
 
 .clearfix {

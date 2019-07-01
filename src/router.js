@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Timeline from '@/views/Timeline'
+import Post from '@/views/Post'
 
 Vue.use(Router)
 
@@ -10,7 +12,12 @@ export default new Router({
     {
       path: '/',
       name: 'Timeline',
-      component: () => import(/* webpackChunkName: "timeline" */ './views/Timeline.vue')
+      component: Timeline
+    },
+    {
+      path: '/post/:id',
+      name: 'Post',
+      component: Post
     },
     {
       path: '/projects',

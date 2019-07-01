@@ -1,35 +1,37 @@
 <template>
-  <ProfileWrapper>
+  <div class="TimelineWrapper">
 
-    <ProfileHeader tab="Timeline" />
+    <ProfileWrapper class="Timeline">
+      <ProfileHeader tab="Timeline" />
+      <div class="timeline-content-wrapper">
+        
+        <div class="timeline-sidebar">
+          <BoxWrapper>
+            <BoxContent>
+              <h3 class="welcome-title">Welcome to my social portfolio!</h3>
 
-    <div class="timeline-content-wrapper">
-      
-      <div class="timeline-sidebar">
-        <BoxWrapper>
-          <BoxContent>
-            <h3 class="welcome-title">Welcome to my social portfolio!</h3>
+              <p class="welcome-message">
+                I'm glad you're here, but this
+                is still a work in progress. If you want to talk to me, please
+                send me an e-mail.
+              </p>
 
-            <p class="welcome-message">
-              I'm glad you're here, but this
-              is still a work in progress. If you want to talk to me, please
-              send me an e-mail.
-            </p>
+              <p class="welcome-email">
+                giovanneafonso@gmail.com
+              </p>
+            </BoxContent>
+          </BoxWrapper>
+        </div>
 
-            <p class="welcome-email">
-              giovanneafonso@gmail.com
-            </p>
-          </BoxContent>
-        </BoxWrapper>
+        <div class="timeline-posts">
+          <BlogPosts />
+        </div>
+
       </div>
+    </ProfileWrapper>
 
-      <div class="timeline-posts">
-        <BlogPosts />
-      </div>
-
-    </div>
-
-  </ProfileWrapper>
+    <slot />
+  </div>
 </template>
 
 <style lang="scss">
@@ -72,7 +74,7 @@
 <script>
 import ProfileWrapper from '@/components/Profile/ProfileWrapper'
 import ProfileHeader from '@/components/Profile/ProfileHeader'
-import BlogPosts from '@/components/Timeline/List/BlogPosts'
+import BlogPosts from '@/components/Blog/List/BlogPosts'
 
 export default {
   components: { ProfileWrapper, ProfileHeader, BlogPosts }

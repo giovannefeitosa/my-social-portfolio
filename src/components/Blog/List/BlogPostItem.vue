@@ -11,21 +11,19 @@
 
     <div class="post-excerpt">{{ post.excerpt }}</div>
 
-    <a href="#" class="post-image">
+    <router-link :to="post_route" class="post-image">
       <img :src="post.image" :alt="post.title">
-    </a>
+    </router-link>
 
     <div class="below-image">
-      <a href="#" class="post-title">
+      <router-link :to="post_route" class="post-title">
         {{ post.title }}
-      </a>
+      </router-link>
 
       <div class="post-like-stats">
         <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="standard" data-action="recommend" data-size="small" data-show-faces="true" data-share="false"></div>
       </div>
     </div>
-
-    <!-- <pre style="font-size:11px;">{{ post }}</pre> -->
   </BoxWrapper>
 </template>
 
@@ -116,5 +114,10 @@
 <script>
 export default {
   props: [ 'post' ],
+  computed: {
+    post_route() {
+      return {name: 'Post', params: {id: this.post._id}}
+    }
+  }
 }
 </script>

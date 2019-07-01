@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import axios from 'axios'
 
 export default {
@@ -27,10 +28,21 @@ export default {
       
       state: {
         error_message: '',
+        current_post_id: '',
         posts: [],
         total: 0,
         page: 0,
         totalPages: 0
+      },
+
+      getters: {
+        /**
+         * Get the current post
+         */
+        current_post(state) {
+          if(!state.current_post_id) return false
+          return _.find(state.posts, { _id: state.current_post_id })
+        }
       },
       
       mutations: {
@@ -44,12 +56,19 @@ export default {
         /**
          * Handle response from node-blog-api GET /posts
          */
-        handle_page(state, pageResponse) {
+        handle_page(state, page_response) {
           state.error_message = ''
-          state.posts = pageResponse.rows
-          state.total = pageResponse.total
-          state.page = pageResponse.page
-          state.totalPages = pageResponse.totalPages
+          state.posts = page_response.rows
+          state.total = page_response.total
+          state.page = page_response.page
+          state.totalPages = page_response.totalPages
+        },
+
+        /**
+         * Set current opened post_id
+         */
+        current_post_id(state, post_id) {
+          state.current_post_id = post_id
         }
       },
 
