@@ -15,7 +15,7 @@ Vue.use(NodeBlogApi, {
   store,
   autoload: true,
   endpoint: process.env.NODE_ENV === 'production'
-    ? 'http://alagym.com.br:9850'
+    ? 'https://blogapi.alagym.com.br'
     : 'http://localhost:3000'
 })
 
