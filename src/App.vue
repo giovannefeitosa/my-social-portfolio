@@ -12,13 +12,19 @@
 }
 
 html, body {
-  font-family: 'Roboto', 'Avenir', Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-family: 'Roboto', 'Ubuntu', Tahoma, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #222;
+  line-height: 1.3em;
 }
 
 body {
   // Same background color used for old-times Orkut
   // We miss you, bro =')
-  background: #d4dded;
+  // background: #d4dded;
+
+  // Changed my mind...
+  // Now I'm using facebook's background color
+  background: #e9ebee;
 }
 </style>

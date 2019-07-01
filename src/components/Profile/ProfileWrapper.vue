@@ -9,6 +9,7 @@
 
 .ProfileWrapper {
   margin: auto;
+  padding-bottom: 30px;
 
   @media (min-width: $lg) {
     max-width: $page_max_width;

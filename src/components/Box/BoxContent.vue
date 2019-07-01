@@ -1,5 +1,5 @@
 <template>
-<div class="BoxWrapper">
+<div class="BoxContent">
   <slot />
 </div>
 </template>
@@ -8,10 +8,14 @@
 @import '@/assets/scss/variables.scss';
 @import '@/assets/scss/mixins.scss';
 
-.BoxWrapper {
-  background: #fff;
-  @include contentBox();
-  margin: 10px auto 0 auto;
+.BoxContent {
+  @media (min-width: $sm+1) {
+    padding: 30px;
+  }
+
+  @media (max-width: $sm) {
+    padding: 15px;
+  }
 }
 </style>
 

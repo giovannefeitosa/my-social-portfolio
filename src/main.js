@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import NodeBlogApi from './plugins/NodeBlogApi/NodeBlogApi'
+import BoxWrapper from '@/components/Box/BoxWrapper'
+import BoxContent from '@/components/Box/BoxContent'
 
 Vue.config.productionTip = false
 
@@ -11,6 +13,9 @@ Vue.use(NodeBlogApi, {
   autoload: true,
   endpoint: 'http://localhost:3000'
 })
+
+Vue.component('BoxWrapper', BoxWrapper)
+Vue.component('BoxContent', BoxContent)
 
 new Vue({
   router,
